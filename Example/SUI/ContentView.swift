@@ -32,25 +32,30 @@ struct ContentView: View {
 	var body: some View {
 		ScrollView(.vertical, showsIndicators: false) {
 			VStack(alignment: .leading, spacing: 20) {
-				HeaderSubHeadView(title: "Animated Collections", subTitle: "Here you can see all the animatable fancy collections")
+				HeaderSubHeadView(title: "Animated Collections".systemHeading1(),
+								  subTitle: "Here you can see all the animatable fancy collections".systemSubHeading())
 					.buttonify {
 						self.appStates.showAnimation.toggle()
 					}
-				HeaderSubHeadView(title: "Image", subTitle: "Every thing you can do with an image")
+				HeaderSubHeadView(title: "Image".systemHeading1(),
+								  subTitle: "Every thing you can do with an image".systemSubHeading())
 					.buttonify {
 						self.appStates.imageView.toggle()
 					}
-				HeaderSubHeadView(title: "Rounded Button", subTitle: "Custom Rounded Button with custom Config")
+				HeaderSubHeadView(title: "Rounded Button".systemHeading1(),
+								  subTitle: "Custom Rounded Button with custom Config".systemSubHeading())
 					.buttonify {
 						self.appStates.roundedButton.toggle()
 					}
 				
-				HeaderSubHeadView(title: "Custom NavBar (Work in Progress)", subTitle: "Custom Navigation Bar")
+				HeaderSubHeadView(title: "Custom NavBar (Work in Progress)".systemHeading1(),
+								  subTitle: "Custom Navigation Bar".systemSubHeading())
 					.buttonify {
 						self.appStates.navBar.toggle()
 					}
 
-				HeaderSubHeadView(title: "Animation", subTitle: "All Animations")
+				HeaderSubHeadView(title: "Animation".systemHeading1(),
+								  subTitle: "All Animations".systemSubHeading())
 					.buttonify {
 						self.appStates.animations.toggle()
 					}

@@ -19,15 +19,10 @@ struct AnimationCollectionMaster: View {
 	@StateObject var randomImageDownload: RandomImagesDownloaders = .init(endPoint: .list(page: Int.random(in: 0...5), limit: 25))
 	
 	func headerBuilder(title: String, subTitle: String? = nil) -> AnyView {
-		HStack(alignment: .center, spacing: 10) {
-			title.text
-				.padding(10)
-				.borderCard(borderColor: .red, radius: 8, borderWidth: 1)
-			Spacer()
-			if let validSubTitle = subTitle {
-				validSubTitle.text
-			}
-		}.padding()
+		HeaderSubHeadView(title: title.styled(font: .systemFont(ofSize: 15, weight: .bold), color: .black),
+						  subTitle: subTitle?.styled(font: .systemFont(ofSize: 13, weight: .medium), color: .black))
+		.padding()
+		.fillWidth(alignment: .leading)
 		.anyView
 	}
 		
@@ -43,8 +38,8 @@ struct AnimationCollectionMaster: View {
 					VStack(alignment: .leading, spacing: 15) {
 						RoundedButton(model: .testModelLeading)
 							.fixedHeight(height: 50)
-						"This is a test text , a alternative to the boring Lorem ipsum text"
-							.styled(font: .systemFont(ofSize: 14, weight: .medium), color: .black)
+							"This is a test text , a alternative to the boring Lorem ipsum text"
+							.systemBody()
 							.text
 						Spacer()
 					}
@@ -53,8 +48,24 @@ struct AnimationCollectionMaster: View {
 					.background((color as? Color) ?? .black)
 					.clipContent(radius: 16)
 				}
-				.containerize(header: headerBuilder(title: "Slide Over Carousel"))
+				.containerize(header: headerBuilder(title: "Slide Over Carousel", subTitle: "w/o Timer"))
 
+				
+				SlideOverCarousel(data:[Color.red, Color.blue, Color.brown, Color.mint],config: .withTimer) { color in
+					VStack(alignment: .leading, spacing: 15) {
+						RoundedButton(model: .testModelLeading)
+							.fixedHeight(height: 50)
+							"This is a test text , a alternative to the boring Lorem ipsum text"
+							.systemBody()
+							.text
+						Spacer()
+					}
+					.padding()
+					.frame(size: .init(width: .totalWidth - 20, height: 200))
+					.background((color as? Color) ?? .black)
+					.clipContent(radius: 16)
+				}.containerize(header: headerBuilder(title: "Slide Over Carousel", subTitle: "w/ Timer"))
+				
 				CascadingCardStack(data: colors, offFactor: .totalWidth.half.half) { color in
 					RoundedRectangle(cornerRadius: 20)
 						.fill((color as? Color) ?? .red)
