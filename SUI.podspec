@@ -17,20 +17,19 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = 'A simple to use and easy to configure library that will help you build clean SwiftUI apps'
 
-  s.homepage         = 'https://github.com/56647167/SUI'
+  s.homepage         = 'https://github.com/krish11031998-pythonwhisperer/SUI'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '56647167' => 'krishna@rain.bh' }
-  s.source           = { :git => 'https://github.com/56647167/SUI.git', :tag => s.version.to_s }
+  s.author           = { 'krish11031998-pythonwhisperer' => 'krish_venkat11@hotmail.com' }
+  s.source           = { :git => 'https://github.com/krish11031998-pythonwhisperer/SUI.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '15.0'
 
-  s.source_files = 'Source/**/*'
+  s.source_files = 'Source/**/*.swift'
+	s.swift_version = '5.0'
   
   # s.resource_bundles = {
   #   'SUI' => ['SUI/Assets/*.png']
