@@ -1,0 +1,22 @@
+{
+  "name": "SUI",
+  "version": "0.1.0",
+  "summary": "A short description of SUI.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/56647167/SUI",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "56647167": "krishna@rain.bh"
+  },
+  "source": {
+    "git": "https://github.com/56647167/SUI.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "SUI/Classes/**/*"
+}
