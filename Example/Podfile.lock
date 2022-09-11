@@ -1,5 +1,5 @@
 PODS:
-  - SUI (0.1.0)
+  - SUI (0.1.1)
 
 DEPENDENCIES:
   - SUI (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SUI: 7b15ecf85c39b6fb5de0066e4ce4df2c1f564207
+  SUI: 559c039fcc7264701cacc681362d24e0ece4f251
 
 PODFILE CHECKSUM: 640fe01617abf3d08736bb3ce21f93620ef919b6
 
