@@ -22,6 +22,8 @@ public extension Image {
 
 public extension Image.SystemCatalogue {
 	var image: Image { .init(systemName: rawValue) }
+	
+	func systemNamed(_ name: String) -> Image { .init(systemName: name) }
 }
 
 

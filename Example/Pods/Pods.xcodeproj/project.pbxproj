@@ -13,7 +13,7 @@
 		1631D75461B0C9674221D12887CF88D9 /* ShakeEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B024E46586605AFCD6BB9241ED0F2B /* ShakeEffect.swift */; };
 		1BC74810089BCE12F386EA0F19C11D29 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3736A38B0499D6EB7A6C51BCE398B4BB /* Int.swift */; };
 		24BE815B154F2AD949E6919ACD3ABA8A /* SlideCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E782C5F64CE6C52F845A9DB0C98C304 /* SlideCardView.swift */; };
-		2726E4832B79AE467986478A8836D71F /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245D917A2F6D1595BF51AB6D0B080F8 /* Button.swift */; };
+		2726E4832B79AE467986478A8836D71F /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5245D917A2F6D1595BF51AB6D0B080F8 /* CustomButton.swift */; };
 		2BAF3F21B4C564734F3C45D3E254A3E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		2C697DA6F10E3721DAE4F9B0AC010611 /* ViewStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA44B0E2C5477E305B703D4D49CF51D /* ViewStyling.swift */; };
 		33819003B6E998FE5552D7582B2209EE /* RandomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6C8A362794E56411FC00E6C9238246 /* RandomImages.swift */; };
@@ -46,6 +46,7 @@
 		DB683C8DD0E94FA242870F501207D68D /* StackedScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE75FE29D47E8333BE8149712674391 /* StackedScroll.swift */; };
 		DC576CA5920C165A4672FD3258A42C04 /* Pods-SUI_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D444CEE8ACDC1F8B4B6478609F48D9A /* Pods-SUI_Tests-dummy.m */; };
 		EEFF8E40E30E83EAAEB4501DA89C68E0 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D808968613DF06132A6A20015ED9C60D /* RoundedButton.swift */; };
+		EFF96C7E28CF74B700A70550 /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF96C7D28CF74B700A70550 /* LabelButton.swift */; };
 		F224ABD1679A7CB1013193FD3ED28937 /* SUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5546239811301531B4BF29AAC8CA83F8 /* SUI-dummy.m */; };
 		F5377F6BD4EB53FCBB7896E290C6CB86 /* Pods-SUI_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6443CD13755BB13DE660C8E902E7A572 /* Pods-SUI_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -78,7 +79,7 @@
 		1D444CEE8ACDC1F8B4B6478609F48D9A /* Pods-SUI_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SUI_Tests-dummy.m"; sourceTree = "<group>"; };
 		1E6B80EE63AB903547F97E0FD757B420 /* ImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		23F42832C2B54C2ADDD03E261AAA5427 /* DiscoveryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
-		25D8FE8463B8267AD1E7FC764DC99B56 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		25D8FE8463B8267AD1E7FC764DC99B56 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		28863DDD6CEB5FDFCF2C6DE8F91EA8EB /* SUI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SUI-Info.plist"; sourceTree = "<group>"; };
 		28A85CCADB4A456D5405DBCD55E24716 /* FullScreenModal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FullScreenModal.swift; sourceTree = "<group>"; };
 		2989E65209A18C165E2472100C5FE5CC /* SUI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SUI-umbrella.h"; sourceTree = "<group>"; };
@@ -90,12 +91,12 @@
 		46772F598484B3786F9751CC4B43E89A /* SUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SUI.release.xcconfig; sourceTree = "<group>"; };
 		4A6F79829C4C30C246D7A1FA09524065 /* Pods-SUI_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SUI_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		4EE9A3CDB4BE78794802A9808DAB50B7 /* View.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		5245D917A2F6D1595BF51AB6D0B080F8 /* Button.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		5245D917A2F6D1595BF51AB6D0B080F8 /* CustomButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		5546239811301531B4BF29AAC8CA83F8 /* SUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SUI-dummy.m"; sourceTree = "<group>"; };
 		56DDE8AB1D7492A7019807CADDCA424B /* SUI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SUI-prefix.pch"; sourceTree = "<group>"; };
 		571AFFAE2764979197FF9AB78148A30A /* Pods-SUI_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SUI_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		5BA44B0E2C5477E305B703D4D49CF51D /* ViewStyling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewStyling.swift; sourceTree = "<group>"; };
-		5C4A79852F699A6EDD56C9A860742B84 /* SUI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SUI.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5C4A79852F699A6EDD56C9A860742B84 /* SUI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SUI.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5EC776C29AE41D0C7E0CBF24957FF5E5 /* Text.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		6443CD13755BB13DE660C8E902E7A572 /* Pods-SUI_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SUI_Example-umbrella.h"; sourceTree = "<group>"; };
 		66B024E46586605AFCD6BB9241ED0F2B /* ShakeEffect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShakeEffect.swift; sourceTree = "<group>"; };
@@ -111,7 +112,7 @@
 		8EC517E2DB20E0E785A0AD69B888455B /* SUI */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SUI; path = SUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FE9272BCC14EC93B79C4F5C3AAB9202 /* Array.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		9608144C6C3865E533C4C831F7F029F6 /* Pods-SUI_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SUI_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DCA5962EF63F386A82F319F6350E65B /* Pods-SUI_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SUI_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9E782C5F64CE6C52F845A9DB0C98C304 /* SlideCardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SlideCardView.swift; sourceTree = "<group>"; };
 		A0BC00094433CF654923DCD8C5A8CC26 /* BlurView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
@@ -125,11 +126,12 @@
 		C26016F0CA478125F6377438F155601F /* Pods-SUI_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SUI_Tests"; path = Pods_SUI_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D808968613DF06132A6A20015ED9C60D /* RoundedButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		DE972EB016BB5533C56552445DB672F6 /* EdgeInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EdgeInsets.swift; sourceTree = "<group>"; };
-		E0B0F161250195A141594822E0F7BD28 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		E0B0F161250195A141594822E0F7BD28 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E82CB6B0237BBEA37666FBFC1F2C53C5 /* EndPoints.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		E89DBB87A14AD7FA239881C18946DF81 /* SlideOverCarousel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SlideOverCarousel.swift; sourceTree = "<group>"; };
 		EB575C340BDA52F6FE2460E752DC61BF /* BottomModal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BottomModal.swift; sourceTree = "<group>"; };
 		EE94146EB8BC63BD922B4F6EEEAECF27 /* CGFloat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
+		EFF96C7D28CF74B700A70550 /* LabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
 		F51D7B9CFBB86F388E31ADFE79407834 /* CommonComponents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommonComponents.swift; sourceTree = "<group>"; };
 		F914ECC9BDE57946B449AD7812803E44 /* Pods-SUI_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SUI_Tests.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,7 +170,6 @@
 				059032C26CFBD7F197CDB97652338E26 /* CustomNavBar.swift */,
 				4669F3AE9B9555E7D1EF613A5AD2A124 /* CustomNavView.swift */,
 			);
-			name = CustomNavigation;
 			path = CustomNavigation;
 			sourceTree = "<group>";
 		};
@@ -373,12 +374,11 @@
 		DF22237F313462CB6996C8EC7644C1ED /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EFF96C7C28CF745800A70550 /* Buttons */,
 				A0BC00094433CF654923DCD8C5A8CC26 /* BlurView.swift */,
-				5245D917A2F6D1595BF51AB6D0B080F8 /* Button.swift */,
 				F51D7B9CFBB86F388E31ADFE79407834 /* CommonComponents.swift */,
 				1E6B80EE63AB903547F97E0FD757B420 /* ImageView.swift */,
 				B156DF40C8A9D3559B125CDBB5414144 /* Navigation.swift */,
-				D808968613DF06132A6A20015ED9C60D /* RoundedButton.swift */,
 				5EC776C29AE41D0C7E0CBF24957FF5E5 /* Text.swift */,
 				0665BDA7964D3B6B9EAC6D782A9AFA8D /* CustomNavigation */,
 				F81CBCC99330A818EEC9FEDC64873C2F /* PresentationViews */,
@@ -387,13 +387,22 @@
 			path = Source/Components;
 			sourceTree = "<group>";
 		};
+		EFF96C7C28CF745800A70550 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				D808968613DF06132A6A20015ED9C60D /* RoundedButton.swift */,
+				5245D917A2F6D1595BF51AB6D0B080F8 /* CustomButton.swift */,
+				EFF96C7D28CF74B700A70550 /* LabelButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		F81CBCC99330A818EEC9FEDC64873C2F /* PresentationViews */ = {
 			isa = PBXGroup;
 			children = (
 				EB575C340BDA52F6FE2460E752DC61BF /* BottomModal.swift */,
 				28A85CCADB4A456D5405DBCD55E24716 /* FullScreenModal.swift */,
 			);
-			name = PresentationViews;
 			path = PresentationViews;
 			sourceTree = "<group>";
 		};
@@ -554,7 +563,7 @@
 				12BD100AC646247283271B9FE2886938 /* Array.swift in Sources */,
 				C506A1C7FD1637AF587AB3BA0F831374 /* BlurView.swift in Sources */,
 				565BC9C4E29F595D9B4A0949FF7C4FBF /* BottomModal.swift in Sources */,
-				2726E4832B79AE467986478A8836D71F /* Button.swift in Sources */,
+				2726E4832B79AE467986478A8836D71F /* CustomButton.swift in Sources */,
 				95BA369D6DCB1333CB7A89105FAF31FE /* CascadingCardStack.swift in Sources */,
 				409971A66E689BC14EC5FECD8C3EA1E5 /* CGFloat.swift in Sources */,
 				0D20A8E6E551DCCAD57DE4E0C61F11E9 /* CGSize.swift in Sources */,
@@ -569,6 +578,7 @@
 				3F12E4512C248B182AA14F5AD4B85511 /* ImageView.swift in Sources */,
 				1BC74810089BCE12F386EA0F19C11D29 /* Int.swift in Sources */,
 				BBB348A3DDC9F08612CE333F746A89FD /* Navigation.swift in Sources */,
+				EFF96C7E28CF74B700A70550 /* LabelButton.swift in Sources */,
 				D72F042B0C2F494E3D4431D9E7FDDF2E /* NetworkRequest.swift in Sources */,
 				33819003B6E998FE5552D7582B2209EE /* RandomImages.swift in Sources */,
 				EEFF8E40E30E83EAAEB4501DA89C68E0 /* RoundedButton.swift in Sources */,
@@ -834,8 +844,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

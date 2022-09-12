@@ -99,7 +99,6 @@ public struct SlideCardView<Content: View>: View {
 						}))
 				}
 			}
-			if leading { backButton.scaleEffect(0.85) }
 			Spacer().frame(size: .init(width: (.totalWidth - size.width).half, height: 10))
 		}
 		.offset(x: offset + swipeOffset)
