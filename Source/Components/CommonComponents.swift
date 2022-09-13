@@ -51,10 +51,14 @@ public extension View {
 								   style: HeadingType = .headSubhead) -> some View {
 		
 		if style == .headSubhead {
-			containerize(header: HeaderSubHeadView(title: title, subTitle: subTitle, spacing: spacing, alignment: alignment).anyView,
+			containerize(header: HeaderSubHeadView(title: title, subTitle: subTitle, spacing: spacing, alignment: alignment.horizontal)
+													.fillWidth(alignment: alignment)
+													.anyView,
 						 footer: EmptyView().anyView)
 		} else if style == .headCaption {
-			containerize(header: HeaderCaptionView(title: title, subTitle: subTitle, spacing: spacing, alignment: alignment).anyView,
+			containerize(header: HeaderCaptionView(title: title, subTitle: subTitle, spacing: spacing, alignment: alignment.vertical)
+													.fillWidth(alignment: alignment)
+													.anyView,
 						 footer: EmptyView().anyView)
 		}
 	}

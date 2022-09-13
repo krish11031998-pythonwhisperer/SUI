@@ -53,4 +53,12 @@ public extension String {
 	func systemBody(color: Color = .black) -> RenderableText {
 		styled(font: .systemFont(ofSize: 12, weight: .regular),color: color)
 	}
+	
+	func sectionHeader(color: Color = .black) -> RenderableText {
+		styled(font: .systemFont(ofSize: 25, weight: .semibold), color: color)
+	}
+	
+	func sectionSubHeading(color: Color = .black) -> RenderableText {
+		styled(font: .systemFont(ofSize: 17.5, weight: .regular), color: color)
+	}
 }

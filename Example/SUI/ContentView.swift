@@ -97,7 +97,7 @@ extension ContentView {
 	
 	var roundedButtonLink: some View {
 		NavLink(isActive: $appStates.roundedButton) {
-			RoundedButtonComponents()
+			ButtonComponents()
 		}
 	}
 	

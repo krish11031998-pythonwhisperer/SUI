@@ -8,12 +8,12 @@
 import SwiftUI
 
 //MARK: - LabelButtonConfig
-enum ImageData {
+public enum ImageData {
 	case url(String)
 	case img(String)
 }
 
-extension ImageData {
+public extension ImageData {
 	var value: String? {
 		switch self {
 		case .url(let url):
@@ -23,22 +23,32 @@ extension ImageData {
 		}
 	}
 }
-struct LabelButtonConfig {
-	enum ImageDirection {
+public struct LabelButtonConfig {
+	public enum ImageDirection: String {
 		case top
 		case left
 		case right
 		case bottom
 	}
 	
-	enum Alignment {
+	public enum Alignment: String {
 		case vertical
 		case horizontal
 	}
 	
-	enum ImageStyle {
+	public enum ImageStyle {
 		case clipped
 		case rounded(CGFloat)
+	}
+	
+	public struct LabelConfig {
+		let spacing: CGFloat
+		let alignment: SwiftUI.HorizontalAlignment
+		
+		public init(spacing: CGFloat, alignment: SwiftUI.HorizontalAlignment) {
+			self.spacing = spacing
+			self.alignment = alignment
+		}
 	}
 	
 	let imgDirection: ImageDirection
@@ -47,10 +57,12 @@ struct LabelButtonConfig {
 	let spacing: CGFloat
 	let imageSize: CGSize
 	let imageStyle: ImageStyle
+	let labelConfig: LabelConfig
 	
-	init(imgDirection: ImageDirection = .left,
+	public init(imgDirection: ImageDirection = .left,
 		 orientation: LabelButtonConfig.Alignment = .horizontal,
 		 alignment: SwiftUI.Alignment = .leading,
+		 labelConfig: LabelConfig = .init(spacing: 10, alignment: .leading),
 		 spacing: CGFloat = 8,
 		 imageSize: CGSize,
 		 imageStyle: ImageStyle
@@ -58,13 +70,14 @@ struct LabelButtonConfig {
 		self.imgDirection = imgDirection
 		self.orientation = orientation
 		self.alignment = alignment
+		self.labelConfig = labelConfig
 		self.spacing = spacing
 		self.imageSize = imageSize
 		self.imageStyle = imageStyle
 	}
 }
 
-extension LabelButtonConfig.ImageStyle {
+public extension LabelButtonConfig.ImageStyle {
 	var radius: CGFloat {
 		switch self {
 		case .rounded(let rad):
@@ -75,9 +88,18 @@ extension LabelButtonConfig.ImageStyle {
 	}
 }
 
+extension LabelButtonConfig: Equatable {
+	
+	public static func == (lhs: LabelButtonConfig, rhs: LabelButtonConfig) -> Bool {
+		lhs.alignment == rhs.alignment &&
+		lhs.imgDirection == rhs.imgDirection &&
+		lhs.orientation == rhs.orientation
+	}
+}
+
 //MARK: - LabelButton
 
-struct LabelButton: View {
+public struct LabelButton: View {
 	
 	let config: LabelButtonConfig
 	let image: ImageData
@@ -85,7 +107,7 @@ struct LabelButton: View {
 	let subTitle: RenderableText?
 	let handler: (() -> Void)?
 	
-	init(config: LabelButtonConfig,
+	public init(config: LabelButtonConfig,
 		 image: ImageData,
 		 title: RenderableText,
 		 subTitle: RenderableText?,
@@ -99,7 +121,7 @@ struct LabelButton: View {
 	}
 	
 	
-	@ViewBuilder var imgView: some View {
+	@ViewBuilder private var imgView: some View {
 		switch image {
 		case .url(let url):
 			ImageView(url: url)
@@ -108,13 +130,13 @@ struct LabelButton: View {
 		}
 	}
 	
-	var verticalButton: some View {
+	private var verticalButton: some View {
 		VStack(alignment: config.alignment.horizontal, spacing: config.spacing) {
 			if config.imgDirection == .top {
 				imgView
 					.framed(size: config.imageSize, cornerRadius: config.imageStyle.radius, alignment: .center)
 			}
-			HeaderSubHeadView(title: title, subTitle: subTitle)
+			HeaderSubHeadView(title: title, subTitle: subTitle, spacing: config.labelConfig.spacing, alignment: config.labelConfig.alignment)
 			if config.imgDirection == .bottom {
 				imgView
 					.framed(size: config.imageSize, cornerRadius: config.imageStyle.radius, alignment: .center)
@@ -122,7 +144,7 @@ struct LabelButton: View {
 		}
 	}
 
-	var horizontalButton: some View {
+	private var horizontalButton: some View {
 		HStack(alignment: config.alignment.vertical, spacing: config.spacing) {
 			if config.imgDirection == .left {
 				imgView
@@ -136,7 +158,7 @@ struct LabelButton: View {
 		}
 	}
 	
-	@ViewBuilder var buttonBody: some View {
+	@ViewBuilder private var buttonBody: some View {
 		if config.orientation == .vertical {
 			verticalButton
 		} else {
@@ -144,13 +166,14 @@ struct LabelButton: View {
 		}
 	}
 	
-    var body: some View {
+    public var body: some View {
 		buttonBody
 			.buttonify {
 				handler?()
 			}
     }
 }
+
 
 struct LabelButton_Previews: PreviewProvider {
 	

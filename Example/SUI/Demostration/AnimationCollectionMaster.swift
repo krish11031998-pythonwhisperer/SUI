@@ -31,6 +31,10 @@ struct AnimationCollectionMaster: View {
 		randomImageDownload.loadImage()
 	}
 	
+	private func action(idx: Any) {
+		print("(DEBUG) selected : ", idx)
+	}
+	
 	var body: some View {
 		ScrollView(.vertical, showsIndicators: false) {
 			VStack(alignment: .center, spacing: 10) {
@@ -67,7 +71,7 @@ struct AnimationCollectionMaster: View {
 					.clipContent(radius: 16)
 				}.containerize(header: headerBuilder(title: "Slide Over Carousel", subTitle: "w/ Timer"))
 				
-				CascadingCardStack(data: colors, offFactor: .totalWidth.half.half) { color, isSelected in
+				CascadingCardStack(data: colors, offFactor: .totalWidth.half.half, action: action(idx:)) { color, isSelected in
 					ZStack(alignment: .center) {
 						if let color = color as? Color {
 							color
@@ -85,7 +89,7 @@ struct AnimationCollectionMaster: View {
 						.frame(width: 200, height: 200)
 				}.containerize(header: headerBuilder(title: "Slide Zoom Scroll"))
 				
-				SlideCardView(data: colors, itemSize: .init(width: 200, height: 200), spacing: 0, leading: false) { color,isSelected in
+				SlideCardView(data: colors, itemSize: .init(width: 200, height: 200), leading: false, action: action(idx:)) { color,isSelected in
 					RoundedRectangle(cornerRadius: 20)
 						.fill((color as? Color) ?? .red)
 						.frame(width: 200, height: 200)
