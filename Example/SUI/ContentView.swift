@@ -42,8 +42,8 @@ struct ContentView: View {
 					.buttonify {
 						self.appStates.imageView.toggle()
 					}
-				HeaderSubHeadView(title: "Rounded Button".systemHeading1(),
-								  subTitle: "Custom Rounded Button with custom Config".systemSubHeading())
+				HeaderSubHeadView(title: "Buttons".systemHeading1(),
+								  subTitle: "All Buttons with custom Config".systemSubHeading())
 					.buttonify {
 						self.appStates.roundedButton.toggle()
 					}
