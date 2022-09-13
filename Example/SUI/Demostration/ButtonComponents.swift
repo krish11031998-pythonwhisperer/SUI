@@ -89,6 +89,7 @@ struct ButtonComponents: View {
 			ScrollView(.vertical, showsIndicators: false) {
 				LazyVStack(alignment: .center, spacing: 10) {
 					roundedButtonSection
+						.padding(.horizontal)
 						.containerize(title: "Rounded Button".sectionHeader(),
 									  subTitle: "with all Configs".sectionSubHeading(),
 									  alignment: .leading, style: .headSubhead)
@@ -99,12 +100,14 @@ struct ButtonComponents: View {
 								  subTitle: "with all Configs".sectionSubHeading(),
 								  alignment: .leading, style: .headSubhead)
 					labelButtonDemoSection
+						.padding(.horizontal, 10)
 						.fillWidth(alignment: .center)
 						.containerize(title: "Label Button".sectionHeader(),
 									  subTitle: "with all Configs".sectionSubHeading(),
 									  alignment: .leading, style: .headSubhead)
 						
-				}.padding(.horizontal)
+				}
+				.padding(.bottom, .safeAreaInsets.bottom)
 			}
 		}
 		.slideInFromBottomModal(showModal: $showModal, modalConfig: .defaultConfig,modal: modalView)
@@ -123,23 +126,23 @@ extension ButtonComponents {
 	
 	@ViewBuilder var roundedButtonSection: some View {
 		RoundedButton(model: .testModelLeading)
-			.containerize(title: "Rounded Button".systemHeading1(), subTitle: "w/ Leading Image".systemSubHeading(color: .gray))
+			.containerize(title: "Rounded Button".systemHeading2(), subTitle: "w/ Leading Image".systemSubHeading(color: .gray),hPadding: 0)
 			.fillWidth(alignment: .leading)
 		
 		RoundedButton(model: .testModelTrailing)
-			.containerize(title: "Rounded Button".systemHeading1(), subTitle: "w/ Trailing Image".systemSubHeading(color: .gray))
+			.containerize(title: "Rounded Button".systemHeading2(), subTitle: "w/ Trailing Image".systemSubHeading(color: .gray),hPadding: 0)
 			.fillWidth(alignment: .leading)
 			
 		RoundedButton(model: .testModel) {
 			self.showFullScreen.toggle()
 		}
-		.containerize(title: "Rounded Button".systemHeading1(), subTitle: "w/o Image".systemSubHeading(color: .gray))
+		.containerize(title: "Rounded Button".systemHeading2(), subTitle: "w/o Image".systemSubHeading(color: .gray),hPadding: 0)
 		.fillWidth(alignment: .leading)
 		
 		RoundedButton(model: .testModelWithBlob) {
 			self.showModal.toggle()
 		}
-		.containerize(title: "Rounded Button".systemHeading1(), subTitle: "w/ Blob".systemSubHeading(color: .gray))
+		.containerize(title: "Rounded Button".systemHeading2(), subTitle: "w/ Blob".systemSubHeading(color: .gray),hPadding: 0)
 		.fillWidth(alignment: .leading)
 	}
 }
@@ -197,9 +200,10 @@ extension ButtonComponents {
 					}
 				}
 			}
-			.containerize(title: "Image Direction".systemSubHeading(color: .black),
-						   subTitle: "Orientation is automatically updated!".systemBody(color: .gray))
+			
 		}.padding(.top)
+			.containerize(title: "Image Direction".systemSubHeading(color: .black),
+						   subTitle: "Orientation is automatically updated!".systemBody(color: .gray),vPadding: 0, hPadding: 0)
 		ScrollView(.horizontal, showsIndicators: false) {
 			HStack(alignment: .center, spacing: 10) {
 				ForEach(Array(alignmentList), id:\.key) { al in
@@ -211,8 +215,10 @@ extension ButtonComponents {
 					}
 				}
 			}
-			.containerize(title: "Alignment".systemSubHeading(color: .black))
+			
 		}
+		.containerize(title: "Alignment".systemSubHeading(color: .black),vPadding: 0, hPadding: 0)
+		
 		ScrollView(.horizontal, showsIndicators: false) {
 			HStack(alignment: .center, spacing: 10) {
 				ForEach(Array(labelAlignmentList), id:\.key) { al in
@@ -224,8 +230,10 @@ extension ButtonComponents {
 					}
 				}
 			}
-			.containerize(title: "Label Alignment".systemSubHeading(color: .black))
+			
 		}
+		.containerize(title: "Label Alignment".systemSubHeading(color: .black),vPadding: 0, hPadding: 0)
+		
 		LabelButton(config: .basicConfigBuilder(imgDir: imgDir,
 												orientation: orientation,
 												alignment: alignment,labelConfig: .init(spacing: 8, alignment: labelAligment)),

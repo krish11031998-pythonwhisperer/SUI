@@ -150,7 +150,7 @@ public struct LabelButton: View {
 				imgView
 					.framed(size: config.imageSize, cornerRadius: config.imageStyle.radius, alignment: .center)
 			}
-			HeaderSubHeadView(title: title, subTitle: subTitle)
+			HeaderSubHeadView(title: title, subTitle: subTitle, spacing: config.labelConfig.spacing, alignment: config.labelConfig.alignment)
 			if config.imgDirection == .right {
 				imgView
 					.framed(size: config.imageSize, cornerRadius: config.imageStyle.radius, alignment: .center)

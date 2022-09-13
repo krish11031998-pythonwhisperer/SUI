@@ -46,20 +46,24 @@ public extension View {
 	
 	@ViewBuilder func containerize(title: RenderableText,
 								   subTitle: RenderableText? = nil,
+								   vPadding: CGFloat = 15,
+								   hPadding: CGFloat = 10,
 								   spacing: CGFloat = 8,
 								   alignment: Alignment = .leading,
 								   style: HeadingType = .headSubhead) -> some View {
 		
 		if style == .headSubhead {
 			containerize(header: HeaderSubHeadView(title: title, subTitle: subTitle, spacing: spacing, alignment: alignment.horizontal)
+													.padding(.vertical, vPadding)
+													.padding(.horizontal, hPadding)
 													.fillWidth(alignment: alignment)
-													.anyView,
-						 footer: EmptyView().anyView)
+													.anyView, footer: EmptyView().anyView)
 		} else if style == .headCaption {
 			containerize(header: HeaderCaptionView(title: title, subTitle: subTitle, spacing: spacing, alignment: alignment.vertical)
+													.padding(.vertical, vPadding)
+													.padding(.horizontal, hPadding)
 													.fillWidth(alignment: alignment)
-													.anyView,
-						 footer: EmptyView().anyView)
+													.anyView, footer: EmptyView().anyView)
 		}
 	}
 }

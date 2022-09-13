@@ -38,39 +38,40 @@ struct AnimationCollectionMaster: View {
 	var body: some View {
 		ScrollView(.vertical, showsIndicators: false) {
 			VStack(alignment: .center, spacing: 10) {
-				
-				SlideOverCarousel(data:[Color.red, Color.blue, Color.brown, Color.mint]) { color in
-					VStack(alignment: .leading, spacing: 15) {
-						RoundedButton(model: .testModelLeading)
-							.fixedHeight(height: 50)
+				Group {
+					SlideOverCarousel(data:[Color.red, Color.blue, Color.brown, Color.mint]) { color in
+						VStack(alignment: .leading, spacing: 15) {
+							RoundedButton(model: .testModelLeading)
+								.fixedHeight(height: 50)
 							"This is a test text , a alternative to the boring Lorem ipsum text"
-							.systemBody()
-							.text
-						Spacer()
+								.systemBody()
+								.text
+							Spacer()
+						}
+						.padding()
+						.frame(size: .init(width: .totalWidth - 20, height: 200))
+						.background((color as? Color) ?? .black)
+						.clipContent(radius: 16)
 					}
-					.padding()
-					.frame(size: .init(width: .totalWidth - 20, height: 200))
-					.background((color as? Color) ?? .black)
-					.clipContent(radius: 16)
+					.containerize(header: headerBuilder(title: "Slide Over Carousel", subTitle: "w/o Timer"))
+					
+					
+					SlideOverCarousel(data:[Color.red, Color.blue, Color.brown, Color.mint],config: .withTimer) { color in
+						VStack(alignment: .leading, spacing: 15) {
+							RoundedButton(model: .testModelLeading)
+								.fixedHeight(height: 50)
+							"This is a test text , a alternative to the boring Lorem ipsum text"
+								.systemBody()
+								.text
+							Spacer()
+						}
+						.padding()
+						.frame(size: .init(width: .totalWidth - 20, height: 200))
+						.background((color as? Color) ?? .black)
+						.clipContent(radius: 16)
+					}.containerize(header: headerBuilder(title: "Slide Over Carousel", subTitle: "w/ Timer"))
 				}
-				.containerize(header: headerBuilder(title: "Slide Over Carousel", subTitle: "w/o Timer"))
-
-				
-				SlideOverCarousel(data:[Color.red, Color.blue, Color.brown, Color.mint],config: .withTimer) { color in
-					VStack(alignment: .leading, spacing: 15) {
-						RoundedButton(model: .testModelLeading)
-							.fixedHeight(height: 50)
-							"This is a test text , a alternative to the boring Lorem ipsum text"
-							.systemBody()
-							.text
-						Spacer()
-					}
-					.padding()
-					.frame(size: .init(width: .totalWidth - 20, height: 200))
-					.background((color as? Color) ?? .black)
-					.clipContent(radius: 16)
-				}.containerize(header: headerBuilder(title: "Slide Over Carousel", subTitle: "w/ Timer"))
-				
+				.containerize(title: "SlideOverCarousel".sectionHeader())
 				CascadingCardStack(data: colors, offFactor: .totalWidth.half.half, action: action(idx:)) { color, isSelected in
 					ZStack(alignment: .center) {
 						if let color = color as? Color {
@@ -81,13 +82,13 @@ struct AnimationCollectionMaster: View {
 					}
 					.framed(size: .init(width: 200, height: 350), cornerRadius: 20, alignment: .center)
 				}
-				.containerize(header: headerBuilder(title: "Cascading Card Stack"))
+				.containerize(title: "Cascading Card Stack".sectionHeader())
 					
 				SlideZoomScroll(data: colors, itemSize: .init(width: 200, height: 200)) { color in
 					RoundedRectangle(cornerRadius: 20)
 						.fill((color as? Color) ?? .red)
 						.frame(width: 200, height: 200)
-				}.containerize(header: headerBuilder(title: "Slide Zoom Scroll"))
+				}.containerize(title: "Slide Zoom Scroll".sectionHeader())
 				
 				SlideCardView(data: colors, itemSize: .init(width: 200, height: 200), leading: false, action: action(idx:)) { color,isSelected in
 					RoundedRectangle(cornerRadius: 20)
@@ -105,7 +106,7 @@ struct AnimationCollectionMaster: View {
 							.frame(width: 200, height: 200)
 							.scaleEffect(0.85)
 						}
-				}.containerize(header: headerBuilder(title: "Slide Card View"))
+				}.containerize(title: "Slide Card View".sectionHeader())
 				
 				RoundedButton(model: .init(topLeadingText: "Discovery View".styled(font: .systemFont(ofSize: 15, weight: .bold), color: .black),
 										   bottomLeadingText: "Experience it!".styled(font: .systemFont(ofSize: 13, weight: .medium), color: .black),
