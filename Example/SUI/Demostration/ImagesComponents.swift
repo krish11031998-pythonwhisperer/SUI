@@ -17,12 +17,13 @@ struct ImageComponents: View  {
 				ImageView(url: "https://weathereport.mypinata.cloud/ipfs/QmZJ56QmQpXQJamofJJYbR5T1gQTxVMhN5uHYfhvAmdFr8/85.png")
 					.frame(size: .init(width: 100, height: 100))
 					.clipContent(radius: 16)
-					.containerize(header: HeaderCaptionView(title: "Rectangle Image", subTitle: "Caption", alignment: .center).padding().anyView)
+					.containerize(title: "Rectangle Image".systemHeading1(color: .textColor),
+								  subTitle: "Caption".systemBody(color: .textColor))
 				
 				ImageView(url: "https://weathereport.mypinata.cloud/ipfs/QmZJ56QmQpXQJamofJJYbR5T1gQTxVMhN5uHYfhvAmdFr8/85.png")
 					.frame(size: .init(width: 100, height: 100))
 					.clipContent(radius: 50)
-					.containerize(header: HeaderCaptionView(title: "Circle Image", subTitle: "Caption", alignment: .center).padding().anyView)
+					.containerize(title: "Circle Image".systemHeading1(color: .textColor), subTitle: "Caption".systemBody(color: .textColor))
 
 			}
 		}

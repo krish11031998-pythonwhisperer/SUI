@@ -68,7 +68,7 @@ struct ButtonComponents: View {
 		VStack(alignment: .leading, spacing: 10) {
 			HStack(alignment: .center) {
 				"Modal"
-					.styled(font: .systemFont(ofSize: 25, weight: .bold), color: .black)
+					.styled(font: .systemFont(ofSize: 25, weight: .bold), color: .textColor)
 					.text
 				Spacer()
 				if !showFullScreen {
@@ -90,20 +90,20 @@ struct ButtonComponents: View {
 				LazyVStack(alignment: .center, spacing: 10) {
 					roundedButtonSection
 						.padding(.horizontal)
-						.containerize(title: "Rounded Button".sectionHeader(),
-									  subTitle: "with all Configs".sectionSubHeading(),
+						.containerize(title: "Rounded Button".sectionHeader(color: .textColor),
+									  subTitle: "with all Configs".sectionSubHeading(color: .textColor),
 									  alignment: .leading, style: .headSubhead)
 					blobButton
 						.padding()
 						.fillWidth(alignment: .center)
-						.containerize(title: "Blob Button".sectionHeader(),
-								  subTitle: "with all Configs".sectionSubHeading(),
+						.containerize(title: "Blob Button".sectionHeader(color: .textColor),
+								  subTitle: "with all Configs".sectionSubHeading(color: .textColor),
 								  alignment: .leading, style: .headSubhead)
 					labelButtonDemoSection
 						.padding(.horizontal, 10)
 						.fillWidth(alignment: .center)
-						.containerize(title: "Label Button".sectionHeader(),
-									  subTitle: "with all Configs".sectionSubHeading(),
+						.containerize(title: "Label Button".sectionHeader(color: .textColor),
+									  subTitle: "with all Configs".sectionSubHeading(color: .textColor),
 									  alignment: .leading, style: .headSubhead)
 						
 				}
@@ -126,23 +126,23 @@ extension ButtonComponents {
 	
 	@ViewBuilder var roundedButtonSection: some View {
 		RoundedButton(model: .testModelLeading)
-			.containerize(title: "Rounded Button".systemHeading2(), subTitle: "w/ Leading Image".systemSubHeading(color: .gray),hPadding: 0)
+			.containerize(title: "Rounded Button".systemHeading2(color: .textColor), subTitle: "w/ Leading Image".systemSubHeading(color: .gray),hPadding: 0)
 			.fillWidth(alignment: .leading)
 		
 		RoundedButton(model: .testModelTrailing)
-			.containerize(title: "Rounded Button".systemHeading2(), subTitle: "w/ Trailing Image".systemSubHeading(color: .gray),hPadding: 0)
+			.containerize(title: "Rounded Button".systemHeading2(color: .textColor), subTitle: "w/ Trailing Image".systemSubHeading(color: .gray),hPadding: 0)
 			.fillWidth(alignment: .leading)
 			
 		RoundedButton(model: .testModel) {
 			self.showFullScreen.toggle()
 		}
-		.containerize(title: "Rounded Button".systemHeading2(), subTitle: "w/o Image".systemSubHeading(color: .gray),hPadding: 0)
+		.containerize(title: "Rounded Button".systemHeading2(color: .textColor), subTitle: "w/o Image".systemSubHeading(color: .gray),hPadding: 0)
 		.fillWidth(alignment: .leading)
 		
 		RoundedButton(model: .testModelWithBlob) {
 			self.showModal.toggle()
 		}
-		.containerize(title: "Rounded Button".systemHeading2(), subTitle: "w/ Blob".systemSubHeading(color: .gray),hPadding: 0)
+		.containerize(title: "Rounded Button".systemHeading2(color: .textColor), subTitle: "w/ Blob".systemSubHeading(color: .gray),hPadding: 0)
 		.fillWidth(alignment: .leading)
 	}
 }

@@ -32,30 +32,30 @@ struct ContentView: View {
 	var body: some View {
 		ScrollView(.vertical, showsIndicators: false) {
 			VStack(alignment: .leading, spacing: 20) {
-				HeaderSubHeadView(title: "Animated Collections".systemHeading1(),
-								  subTitle: "Here you can see all the animatable fancy collections".systemSubHeading())
+				HeaderSubHeadView(title: "Animated Collections".systemHeading1(color: .textColor),
+								  subTitle: "Here you can see all the animatable fancy collections".systemSubHeading(color: .textColor))
 					.buttonify {
 						self.appStates.showAnimation.toggle()
 					}
-				HeaderSubHeadView(title: "Image".systemHeading1(),
-								  subTitle: "Every thing you can do with an image".systemSubHeading())
+				HeaderSubHeadView(title: "Image".systemHeading1(color: .textColor),
+								  subTitle: "Every thing you can do with an image".systemSubHeading(color: .textColor))
 					.buttonify {
 						self.appStates.imageView.toggle()
 					}
-				HeaderSubHeadView(title: "Buttons".systemHeading1(),
-								  subTitle: "All Buttons with custom Config".systemSubHeading())
+				HeaderSubHeadView(title: "Buttons".systemHeading1(color: .textColor),
+								  subTitle: "All Buttons with custom Config".systemSubHeading(color: .textColor))
 					.buttonify {
 						self.appStates.roundedButton.toggle()
 					}
 				
-				HeaderSubHeadView(title: "Custom NavBar (Work in Progress)".systemHeading1(),
-								  subTitle: "Custom Navigation Bar".systemSubHeading())
+				HeaderSubHeadView(title: "Custom NavBar (Work in Progress)".systemHeading1(color: .textColor),
+								  subTitle: "Custom Navigation Bar".systemSubHeading(color: .textColor))
 					.buttonify {
 						self.appStates.navBar.toggle()
 					}
 
-				HeaderSubHeadView(title: "Animation".systemHeading1(),
-								  subTitle: "All Animations".systemSubHeading())
+				HeaderSubHeadView(title: "Animation".systemHeading1(color: .textColor),
+								  subTitle: "All Animations".systemSubHeading(color: .textColor))
 					.buttonify {
 						self.appStates.animations.toggle()
 					}
@@ -73,6 +73,7 @@ struct ContentView: View {
 		}
 		.navigationBarHidden(true)
 		.customNavbarWithAppearance(navbarAppearance: navBarAppearance)
+		.background(Color.surfaceBackground)
 	}
 }
 
