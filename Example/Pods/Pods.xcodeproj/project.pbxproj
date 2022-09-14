@@ -47,6 +47,7 @@
 		E8F03B5B7158D5EE8053B5674E92859B /* ArcShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF6C1CCF3BD7B47B1A58F397C0A1D74 /* ArcShape.swift */; };
 		EF494959082D5741DD3E2B80F0273538 /* CommonComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70D2032DCEF6F4EA94A78B444447FCD /* CommonComponents.swift */; };
 		EFF96C8228D0507F00A70550 /* BlobButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF96C8128D0507F00A70550 /* BlobButton.swift */; };
+		EFF96C8628D183EF00A70550 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF96C8528D183EF00A70550 /* Image.swift */; };
 		F5377F6BD4EB53FCBB7896E290C6CB86 /* Pods-SUI_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6443CD13755BB13DE660C8E902E7A572 /* Pods-SUI_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F85126EA27AEE0F24239E7A3483CDE07 /* SlideOverCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD89C7072F0EB1FE01ED09A3A088D04 /* SlideOverCarousel.swift */; };
 		FC958DB63BF4CA601E39CC01217F00A1 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BF63ADCF88BAE4F0CD4A143DDC1087 /* Int.swift */; };
@@ -130,6 +131,7 @@
 		EAD89C7072F0EB1FE01ED09A3A088D04 /* SlideOverCarousel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SlideOverCarousel.swift; sourceTree = "<group>"; };
 		EB3C821CF1F43B7331276586858F2C8B /* AnimatableProgressBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimatableProgressBar.swift; sourceTree = "<group>"; };
 		EFF96C8128D0507F00A70550 /* BlobButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobButton.swift; sourceTree = "<group>"; };
+		EFF96C8528D183EF00A70550 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		F48C35C767262E6E3623FDDDAB39FA22 /* EndPoints.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		F73C6C5819C50692A1C779E25EF4771D /* SUI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SUI-Info.plist"; sourceTree = "<group>"; };
 		F78AAA2D9CDC0C8A60E558D70D31683B /* CGSize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				F7A2875044D8D02161DBF53313CE95B7 /* String.swift */,
 				FA196B13320373355F7AA2D5CF76ADCB /* View.swift */,
 				5CB667195CE48448AD5B9F0DB0DE872E /* ViewStyling.swift */,
+				EFF96C8528D183EF00A70550 /* Image.swift */,
 			);
 			name = Extension;
 			path = Source/Extension;
@@ -562,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3460761F594156528A29502B64BC8E25 /* AnimatableProgressBar.swift in Sources */,
+				EFF96C8628D183EF00A70550 /* Image.swift in Sources */,
 				E8F03B5B7158D5EE8053B5674E92859B /* ArcShape.swift in Sources */,
 				267807516A8F2F3D63E0F09AE1FFD35F /* Array.swift in Sources */,
 				996DD5456A8FD1579A7D0E26849A8E46 /* BlurView.swift in Sources */,

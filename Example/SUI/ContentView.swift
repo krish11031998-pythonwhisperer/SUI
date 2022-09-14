@@ -72,7 +72,7 @@ struct ContentView: View {
 			animationsNavLink
 		}
 		.navigationBarHidden(true)
-		.customNavbarAppearance(navbarAppearance: navBarAppearance)
+		.customNavbarWithAppearance(navbarAppearance: navBarAppearance)
 	}
 }
 

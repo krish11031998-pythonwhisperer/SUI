@@ -111,7 +111,7 @@ struct ButtonComponents: View {
 			}
 		}
 		.slideInFromBottomModal(showModal: $showModal, modalConfig: .defaultConfig,modal: modalView)
-		.fullScreenModal(isActive: $showFullScreen, innerContent: {
+		.fullScreenModal(isActive: $showFullScreen, config: .init(isDraggable: true, showCloseIndicator: true), innerContent: {
 			modalView()
 				.padding(.top, .safeAreaInsets.top)
 		})
