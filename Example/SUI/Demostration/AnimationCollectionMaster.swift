@@ -16,6 +16,7 @@ struct AnimationCollectionMaster: View {
 	@State var showStackedScroll: Bool = false
 	@State var loadData: Bool = false
 	@State var enableScroll: Bool = true
+	@State var selectedCard: Int = -1
 	
 	@StateObject var randomImageDownload: RandomImagesDownloaders = .init(endPoint: .list(page: Int.random(in: 0...5), limit: 25))
 	
@@ -148,10 +149,16 @@ extension AnimationCollectionMaster {
 	}
 	
 	@ViewBuilder func discoveryView() -> some View {
-		DiscoveryView(data: randomImageDownload.images, model: discoveryModel) { data in
-			if let imgData = data as? RandomImage {
+		DiscoveryView(data: randomImageDownload.images.enumerated().map { .init(id: $0.offset, data: $0.element) }, model: discoveryModel) { data in
+			if let imgData = data.data as? RandomImage {
 				ImageView(url: imgData.optimizedImage(size: .init(width: 250, height: 350)))
 					.framed(size: .init(width: 250, height: 350), cornerRadius: 20, alignment: .center)
+					.onTapGesture {
+						withAnimation(.easeInOut(duration: 0.35)){
+							self.selectedCard = data.id
+						}
+					}
+					.cardSelected(selectedCard)
 			} else {
 				RoundedRectangle(cornerRadius: 20)
 					.fill(.brown)
