@@ -21,12 +21,12 @@ public extension SimpleHScrollConfig {
 	}
 }
 
-public struct SimpleHScroll<Content: View>: View {
-	let data: [Any]
-	let viewBuilder: (Any) -> Content
+public struct SimpleHScroll<T: Codable,Content: View>: View {
+	let data: [T]
+	let viewBuilder: (T) -> Content
 	let config: SimpleHScrollConfig
 	
-	public init(data:[Any], config: SimpleHScrollConfig, @ViewBuilder viewBuilder: @escaping (Any) -> Content) {
+	public init(data:[T], config: SimpleHScrollConfig, @ViewBuilder viewBuilder: @escaping (T) -> Content) {
 		self.data = data
 		self.viewBuilder = viewBuilder
 		self.config = config
@@ -48,7 +48,7 @@ public struct SimpleHScroll<Content: View>: View {
 fileprivate
 struct SimpleHScroll_Previews: PreviewProvider {
     static var previews: some View {
-		SimpleHScroll(data: Array(repeating: Color.orange, count: 10), config: .original) { color in
+		SimpleHScroll(data: Array(repeating: ColorCodable(data: CodableColors.allCases.randomElement() ?? .black), count: 10), config: .original) { color in
 			RoundedRectangle(cornerRadius: 20)
 				.fill((color as? Color) ?? .black)
 				.framed(size: .init(squared: 100))

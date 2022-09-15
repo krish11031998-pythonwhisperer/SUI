@@ -40,17 +40,17 @@ fileprivate extension View {
 
 //MARK: - SlideZoomScroll
 
-public struct SlideZoomScroll<Content: View>: View {
+public struct SlideZoomScroll<T: Codable, Content: View>: View {
 	
 	@State var currentIdx: Int = .zero
 	@State var off: CGFloat = .zero
 	
 	let size: CGSize
 	let spacing: CGFloat
-	let data: [Any]
-	let cardBuilder: (Any) -> Content
+	let data: [T]
+	let cardBuilder: (T) -> Content
 	
-	public init(data: [Any], itemSize: CGSize, spacing: CGFloat = 10, @ViewBuilder cardBuilder: @escaping (Any) -> Content) {
+	public init(data: [T], itemSize: CGSize, spacing: CGFloat = 10, @ViewBuilder cardBuilder: @escaping (T) -> Content) {
 		self.data = data
 		self.cardBuilder = cardBuilder
 		self.spacing = spacing
@@ -70,9 +70,9 @@ public struct SlideZoomScroll<Content: View>: View {
 fileprivate struct SlideZoomCardCarousel_Preview: PreviewProvider {
 	
 	static var previews: some View {
-		SlideZoomScroll(data: [Color.red, Color.blue, Color.mint,Color.red, Color.blue,Color.red, Color.blue, Color.mint,Color.red, Color.blue], itemSize: .init(width: 200, height: 200)) { color in
+		SlideZoomScroll(data: Array(repeating: ColorCodable(data: CodableColors.allCases.randomElement() ?? .black), count: 10), itemSize: .init(width: 200, height: 200)) { color in
 			RoundedRectangle(cornerRadius: 20)
-				.fill((color as? Color) ?? .red)
+				.fill(color.data.color)
 				.frame(width: 200, height: 200)
 		}
 	}

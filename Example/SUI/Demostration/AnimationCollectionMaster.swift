@@ -10,7 +10,7 @@ import SwiftUI
 import SUI
 
 struct AnimationCollectionMaster: View {
-	let colors : [Color] = [Color.red, Color.blue, Color.mint,Color.red, Color.blue,Color.red, Color.blue, Color.mint,Color.red, Color.blue]
+	let colors : [ColorCodable] = CodableColors.allCases.map { .init(data: $0) } 
 	
 	@State var showDiscoveryView: Bool = false
 	@State var showStackedScroll: Bool = false
@@ -40,7 +40,7 @@ struct AnimationCollectionMaster: View {
 		ScrollView(.vertical, showsIndicators: false) {
 			VStack(alignment: .center, spacing: 10) {
 				Group {
-					SlideOverCarousel(data:[Color.red, Color.blue, Color.brown, Color.mint]) { color in
+					SlideOverCarousel(data:colors) { color in
 						VStack(alignment: .leading, spacing: 15) {
 							RoundedButton(model: .testModelLeading)
 								.fixedHeight(height: 50)
@@ -51,13 +51,13 @@ struct AnimationCollectionMaster: View {
 						}
 						.padding()
 						.frame(size: .init(width: .totalWidth - 20, height: 200))
-						.background((color as? Color) ?? .black)
+						.background(color.data.color)
 						.clipContent(radius: 16)
 					}
 					.containerize(header: headerBuilder(title: "Slide Over Carousel", subTitle: "w/o Timer"))
 					
 					
-					SlideOverCarousel(data:[Color.red, Color.blue, Color.brown, Color.mint],config: .withTimer) { color in
+					SlideOverCarousel(data:colors,config: .withTimer) { color in
 						VStack(alignment: .leading, spacing: 15) {
 							RoundedButton(model: .testModelLeading)
 								.fixedHeight(height: 50)
@@ -68,32 +68,27 @@ struct AnimationCollectionMaster: View {
 						}
 						.padding()
 						.frame(size: .init(width: .totalWidth - 20, height: 200))
-						.background((color as? Color) ?? .black)
+						.background(color.data.color)
 						.clipContent(radius: 16)
 					}.containerize(header: headerBuilder(title: "Slide Over Carousel", subTitle: "w/ Timer"))
 				}
 				.containerize(title: "SlideOverCarousel".sectionHeader())
 				CascadingCardStack(data: colors, offFactor: .totalWidth.half.half, action: action(idx:)) { color, isSelected in
-					ZStack(alignment: .center) {
-						if let color = color as? Color {
-							color
-						} else {
-							Color.black
-						}
-					}
-					.framed(size: .init(width: 200, height: 350), cornerRadius: 20, alignment: .center)
+					RoundedRectangle(cornerRadius: 20)
+						.fill(color.data.color)
+						.framed(size: .init(width: 200, height: 350), cornerRadius: 20, alignment: .center)
 				}
 				.containerize(title: "Cascading Card Stack".sectionHeader())
 					
 				SlideZoomScroll(data: colors, itemSize: .init(width: 200, height: 200)) { color in
 					RoundedRectangle(cornerRadius: 20)
-						.fill((color as? Color) ?? .red)
+						.fill(color.data.color)
 						.frame(width: 200, height: 200)
 				}.containerize(title: "Slide Zoom Scroll".sectionHeader())
 				
 				SlideCardView(data: colors, itemSize: .init(width: 200, height: 200), leading: false, action: action(idx:)) { color,isSelected in
 					RoundedRectangle(cornerRadius: 20)
-						.fill((color as? Color) ?? .red)
+						.fill(color.data.color)
 						.frame(width: 200, height: 200)
 						.overlay {
 							VStack(alignment: .leading) {
