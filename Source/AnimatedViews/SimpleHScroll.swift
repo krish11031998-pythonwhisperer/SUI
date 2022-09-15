@@ -50,7 +50,7 @@ struct SimpleHScroll_Previews: PreviewProvider {
     static var previews: some View {
 		SimpleHScroll(data: Array(repeating: ColorCodable(data: CodableColors.allCases.randomElement() ?? .black), count: 10), config: .original) { color in
 			RoundedRectangle(cornerRadius: 20)
-				.fill((color as? Color) ?? .black)
+				.fill(color.data.color)
 				.framed(size: .init(squared: 100))
 		}
     }
