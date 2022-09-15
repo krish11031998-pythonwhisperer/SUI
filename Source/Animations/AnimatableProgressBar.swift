@@ -8,28 +8,8 @@
 import SwiftUI
 
 public enum AnimatableProgressBarConfig {
-	case horizontal(alignment: Alignment,lineColor: Color)
+	case horizontal(lineColor: Color)
 	case circle(lineWidth: CGFloat,lineColor: Color)
-}
-
-extension AnimatableProgressBarConfig {
-//	var size: CGSize {
-//		switch self {
-//		case .horizontal(_, _, let size):
-//			return size
-//		case .circle(_, _, let size):
-//			return size
-//		}
-//	}
-	
-	var alignment: Alignment {
-		switch self {
-		case .horizontal(let alignment, _):
-			return alignment
-		default:
-			return .center
-		}
-	}
 }
 
 
@@ -47,7 +27,7 @@ private struct AnimatableProgressBarModifer: Animatable, ViewModifier {
 	
 	@ViewBuilder var progressBar: some View {
 		switch type {
-		case .horizontal(let alignment, let lineColor):
+		case .horizontal(let lineColor):
 			Line(pct: pct)
 				.fill(lineColor)
 				.cornerRadius(20)
@@ -61,7 +41,7 @@ private struct AnimatableProgressBarModifer: Animatable, ViewModifier {
 	
 	func body(content: Content) -> some View {
 		content
-			.overlay(alignment: type.alignment) {
+			.overlay {
 				progressBar
 			}
 	}
@@ -71,7 +51,7 @@ private struct AnimatableProgressBarModifer: Animatable, ViewModifier {
 public extension View {
 	
 	func horizontalProgressBar(pct: CGFloat, lineColor: Color = .blue) -> some View {
-		modifier(AnimatableProgressBarModifer(pct: pct, type: .horizontal(alignment: .leading, lineColor: lineColor)))
+		modifier(AnimatableProgressBarModifer(pct: pct, type: .horizontal(lineColor: lineColor)))
 	}
 	
 	func circularProgressBar(pct: CGFloat, lineWidth: CGFloat, lineColor: Color = .black) -> some View {
