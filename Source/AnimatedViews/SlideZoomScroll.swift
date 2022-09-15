@@ -11,33 +11,23 @@ import SwiftUI
 //MARK: - View Modifier
 
 fileprivate struct SlideZoomCard: ViewModifier {
-	
-	let size: CGSize
 	@State var scale: CGFloat = 1
-	init(size: CGSize) {
-		self.size = size
-	}
 	
 	func scaleFactor(midX: CGFloat){
-		scale = midX > .totalWidth * 0.5 ? 0.9 : 1
+		asyncMainAnimation(animation: .default) {
+			scale = midX > .totalWidth * 0.5 ? 0.9 : 1
+		}
+	}
+	
+	func clearViewBuilder(g: GeometryProxy) -> some View {
+		scaleFactor(midX: g.frame(in: .global).midX)
+		return Color.clear
 	}
 	
 	func body(content: Content) -> some View {
-		GeometryReader { g -> AnyView in
-			let midX = g.frame(in: .global).midX
-			
-			DispatchQueue.main.async {
-				withAnimation {
-					scaleFactor(midX: midX)
-				}
-			}
-			
-			let view = content
-				.scaleEffect(scale)
-			
-			return AnyView(view)
-		}
-		.frame(size: size, alignment: .center)
+		content
+			.scaleEffect(scale)
+			.background(GeometryReader(content: clearViewBuilder(g:)))
 	}
 }
 
@@ -45,7 +35,7 @@ fileprivate struct SlideZoomCard: ViewModifier {
 
 fileprivate extension View {
 	
-	func slideZoomCard(size: CGSize) -> some View { modifier(SlideZoomCard(size: size)) }
+	func slideZoomCard() -> some View { modifier(SlideZoomCard()) }
 }
 
 //MARK: - SlideZoomScroll
@@ -68,16 +58,10 @@ public struct SlideZoomScroll<Content: View>: View {
 	}
 	
 	public var body: some View {
-		ScrollView(.horizontal, showsIndicators: false) {
-			HStack(alignment: .center, spacing: spacing) {
-				ForEach(Array(data.enumerated()), id: \.offset) { data in
-					cardBuilder(data.element)
-						.slideZoomCard(size: size)
-						.fixedSize()
-				}
-				Spacer().frame(size: .init(width: .totalWidth.half.half, height: size.height))
-			}
-			.frame(height: size.height, alignment: .leading)
+		SimpleHScroll(data: data, config: .original) {
+			cardBuilder($0)
+				.slideZoomCard()
+				.fixedSize()
 		}
 	}
 }
