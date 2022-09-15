@@ -60,7 +60,7 @@ struct AnimationsMaster: View {
 				
 			RoundedRectangle(cornerRadius: 20)
 				.fill(Color.gray.opacity(0.5))
-				.horizontalProgressBar(pct: pct, size: .init(width: .totalWidth - 30, height: 20))
+				.horizontalProgressBar(pct: pct)
 				.containerize(header: HeaderCaptionView(title: "Horizontal Progress Bar", subTitle: "Click for animation").anyView)
 				.frame(height: 20, alignment: .leading)
 				.padding()
@@ -74,7 +74,7 @@ struct AnimationsMaster: View {
 				.fill(Color.cyan.opacity(0.15))
 				.frame(size: .init(squared: 200))
 				.clipped()
-				.circularProgressBar(pct: pct, lineWidth: 10, lineColor: .red, size: .init(squared: 200))
+				.circularProgressBar(pct: pct, lineWidth: 10, lineColor: .red)
 				.containerize(header: HeaderCaptionView(title: "Circular Progress Bar", subTitle: "Click for animation").anyView)
 				.padding()
 			

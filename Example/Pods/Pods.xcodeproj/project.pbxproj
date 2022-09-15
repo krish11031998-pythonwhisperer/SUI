@@ -46,6 +46,9 @@
 		E0CA1C05AC6A16CB9AA7D9699F147932 /* RandomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9C89C3AB2C48D2D52111C2DBEB641 /* RandomImages.swift */; };
 		E8F03B5B7158D5EE8053B5674E92859B /* ArcShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF6C1CCF3BD7B47B1A58F397C0A1D74 /* ArcShape.swift */; };
 		EF494959082D5741DD3E2B80F0273538 /* CommonComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70D2032DCEF6F4EA94A78B444447FCD /* CommonComponents.swift */; };
+		EF82553D28D30560000447F0 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF82553C28D30560000447F0 /* Line.swift */; };
+		EF82553F28D3078E000447F0 /* LineBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF82553E28D3078E000447F0 /* LineBorder.swift */; };
+		EF82554128D30840000447F0 /* BorderAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF82554028D30840000447F0 /* BorderAnimation.swift */; };
 		EFF96C8228D0507F00A70550 /* BlobButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF96C8128D0507F00A70550 /* BlobButton.swift */; };
 		EFF96C8628D183EF00A70550 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF96C8528D183EF00A70550 /* Image.swift */; };
 		EFF96C8828D19A3C00A70550 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF96C8728D19A3C00A70550 /* CGRect.swift */; };
@@ -131,6 +134,9 @@
 		E70D2032DCEF6F4EA94A78B444447FCD /* CommonComponents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommonComponents.swift; sourceTree = "<group>"; };
 		EAD89C7072F0EB1FE01ED09A3A088D04 /* SlideOverCarousel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SlideOverCarousel.swift; sourceTree = "<group>"; };
 		EB3C821CF1F43B7331276586858F2C8B /* AnimatableProgressBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimatableProgressBar.swift; sourceTree = "<group>"; };
+		EF82553C28D30560000447F0 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		EF82553E28D3078E000447F0 /* LineBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineBorder.swift; sourceTree = "<group>"; };
+		EF82554028D30840000447F0 /* BorderAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderAnimation.swift; sourceTree = "<group>"; };
 		EFF96C8128D0507F00A70550 /* BlobButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobButton.swift; sourceTree = "<group>"; };
 		EFF96C8528D183EF00A70550 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		EFF96C8728D19A3C00A70550 /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
@@ -227,6 +233,7 @@
 			children = (
 				EB3C821CF1F43B7331276586858F2C8B /* AnimatableProgressBar.swift */,
 				6FFCC0E9D64A6932E44203D3CEDE7282 /* ShakeEffect.swift */,
+				EF82554028D30840000447F0 /* BorderAnimation.swift */,
 			);
 			name = Animations;
 			path = Source/Animations;
@@ -371,6 +378,8 @@
 			isa = PBXGroup;
 			children = (
 				CAF6C1CCF3BD7B47B1A58F397C0A1D74 /* ArcShape.swift */,
+				EF82553C28D30560000447F0 /* Line.swift */,
+				EF82553E28D3078E000447F0 /* LineBorder.swift */,
 			);
 			name = Shapes;
 			path = Source/Shapes;
@@ -582,10 +591,12 @@
 				862F3DBFC4BD1F2BD24EC45F9E698A9D /* CustomNavView.swift in Sources */,
 				9C1E8751B7193FD3A511F0B470FDDB02 /* DiscoveryView.swift in Sources */,
 				62D531159078A894F04DA39240DDFE84 /* EdgeInsets.swift in Sources */,
+				EF82553D28D30560000447F0 /* Line.swift in Sources */,
 				ABE9E1856BD069EFCE65F10919C2E16C /* EndPoints.swift in Sources */,
 				3CAD629D334DADB84911B20DAABE434E /* FullScreenModal.swift in Sources */,
 				24318D036128E196CF9C9D894560DC42 /* GlobalFunctions.swift in Sources */,
 				A400365F963B9021FF04337DAF9DD2A8 /* ImageView.swift in Sources */,
+				EF82553F28D3078E000447F0 /* LineBorder.swift in Sources */,
 				EFF96C8828D19A3C00A70550 /* CGRect.swift in Sources */,
 				FC958DB63BF4CA601E39CC01217F00A1 /* Int.swift in Sources */,
 				EFF96C8228D0507F00A70550 /* BlobButton.swift in Sources */,
@@ -603,6 +614,7 @@
 				86C31CCAEDF563C1827691AC36D61E0D /* SUI-dummy.m in Sources */,
 				ABC9B7F686B4CFC6817A2F400D4021E5 /* Text.swift in Sources */,
 				A7BD8520099CFAFD49E91E8D8F4EEF76 /* View.swift in Sources */,
+				EF82554128D30840000447F0 /* BorderAnimation.swift in Sources */,
 				B11985411300906B0D99DF919B50B426 /* ViewStyling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
