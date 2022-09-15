@@ -7,32 +7,32 @@
 
 import SwiftUI
 
-struct SimpleHScrollConfig {
+public struct SimpleHScrollConfig {
 	let spacing:CGFloat
 	let showsIndicator: Bool
 	let horizontalInsets: EdgeInsets
 	let alignment: VerticalAlignment
 }
 
-extension SimpleHScrollConfig {
+public extension SimpleHScrollConfig {
 	
 	static var original: SimpleHScrollConfig {
 		.init(spacing: 10, showsIndicator: false, horizontalInsets: .init(vertical: 0, horizontal: 10), alignment: .center)
 	}
 }
 
-struct SimpleHScroll<Content: View>: View {
+public struct SimpleHScroll<Content: View>: View {
 	let data: [Any]
 	let viewBuilder: (Any) -> Content
 	let config: SimpleHScrollConfig
 	
-	init(data:[Any], config: SimpleHScrollConfig, @ViewBuilder viewBuilder: @escaping (Any) -> Content) {
+	public init(data:[Any], config: SimpleHScrollConfig, @ViewBuilder viewBuilder: @escaping (Any) -> Content) {
 		self.data = data
 		self.viewBuilder = viewBuilder
 		self.config = config
 	}
 	
-    var body: some View {
+    public var body: some View {
 		ScrollView(.horizontal, showsIndicators: config.showsIndicator) {
 			HStack(alignment: config.alignment, spacing: config.spacing) {
 				ForEach(Array(data.enumerated()), id: \.offset) {
@@ -45,6 +45,7 @@ struct SimpleHScroll<Content: View>: View {
     }
 }
 
+fileprivate
 struct SimpleHScroll_Previews: PreviewProvider {
     static var previews: some View {
 		SimpleHScroll(data: Array(repeating: Color.orange, count: 10), config: .original) { color in
