@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BorderAnimation: Animatable, ViewModifier {
+private struct BorderAnimation: Animatable, ViewModifier {
 	var pct: CGFloat
 	let cornerRadius: CGFloat
 	
@@ -27,13 +27,19 @@ struct BorderAnimation: Animatable, ViewModifier {
 				ZStack(alignment: .center) {
 					LineBorder(pct: pct, lineWidth: 3, cornerRadius: cornerRadius)
 						.foregroundColor(Color.blue.opacity(1))
-					String(format: "%.2f", pct).systemBody().text
 				}
 			}
 	}
 }
 
-struct BorderAnimationTest: View {
+public extension View {
+	
+	func animatableBorder(pct: CGFloat, cornerRadius: CGFloat) -> some View {
+		modifier(BorderAnimation(pct: pct, cornerRadius: cornerRadius))
+	}
+}
+
+fileprivate struct BorderAnimationTest: View {
 	@State var animate: Bool = false
 	
 	var body: some View {
@@ -51,7 +57,7 @@ struct BorderAnimationTest: View {
 	}
 }
 
-struct BorderAnimation_Previews: PreviewProvider {
+fileprivate struct BorderAnimation_Previews: PreviewProvider {
     static var previews: some View {
 		BorderAnimationTest()
     }

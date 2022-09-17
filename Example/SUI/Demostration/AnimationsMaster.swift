@@ -13,6 +13,7 @@ struct AnimationsMaster: View {
 	@State var shakes: CGFloat = 0
 	@State var pct: CGFloat = .zero
 	@State var showList: Bool = false
+	@State var animateBorderAnimation: Bool = false
 	
 	var data: [String] = ["Curve Chart with Animatable"]
 	
@@ -55,15 +56,16 @@ struct AnimationsMaster: View {
 					}
 				}
 				.shakeView(shakes: shakes)
-				.containerize(header: HeaderCaptionView(title: "Shake Effect", subTitle: "w/ Animtable", spacing: 0, alignment: .center).anyView)
 				.padding()
-				
+				.containerize(title: "Shake Effect".systemHeading1(), subTitle: "w/ Animtable".systemSubHeading(), style: .headCaption)
+			
+			
 			RoundedRectangle(cornerRadius: 20)
 				.fill(Color.gray.opacity(0.5))
 				.horizontalProgressBar(pct: pct)
-				.containerize(header: HeaderCaptionView(title: "Horizontal Progress Bar", subTitle: "Click for animation").anyView)
 				.frame(height: 20, alignment: .leading)
 				.padding()
+				.containerize(title: "Horizontal Progress Bar".systemHeading1(), subTitle: "Click for animation".systemSubHeading(), style: .headCaption)
 				.onTapGesture {
 					withAnimation(.default) {
 						self.pct = self.pct == 1 ? 0 : 1
@@ -75,16 +77,26 @@ struct AnimationsMaster: View {
 				.frame(size: .init(squared: 200))
 				.clipped()
 				.circularProgressBar(pct: pct, lineWidth: 10, lineColor: .red)
-				.containerize(header: HeaderCaptionView(title: "Circular Progress Bar", subTitle: "Click for animation").anyView)
-				.padding()
+				.containerize(title: "Circular Progress Bar".systemHeading1(), subTitle: "Click for animation".systemSubHeading(), style: .headCaption)
+			
+			
+			RoundedRectangle(cornerRadius: 20)
+				.fill(Color.red)
+				.frame(size: .init(squared: 100))
+				.buttonify {
+					withAnimation(.linear(duration: 0.75)) {
+						animateBorderAnimation.toggle()
+					}
+				}
+				.animatableBorder(pct: animateBorderAnimation ? 1 : 0, cornerRadius: 20)
+				.containerize(title: "Animatable Border".systemHeading1(), subTitle: "Click for animation".systemSubHeading(), style: .headCaption)
 			
 			RoundedButton(model: .init(trailingImg: .init(img: .init(systemName: "hand.thumbsup"), size: .init(squared: 15), cornerRadius: 0),
 									   topLeadingText: "More to come!".styled(font: .systemFont(ofSize: 15, weight: .bold), color: .black),
 									   bottomLeadingText: "Stay tuned".styled(font: .systemFont(ofSize: 13, weight: .medium), color: .black),
 									   blob: .init(background: .gray.opacity(0.15), padding: 20, cornerRadius: 20))) {
 				showList = true
-			}
-			.padding()
+			}.padding()
 		}
 		.slideInFromBottomModal(showModal: $showList, modalConfig: .defaultConfig, modal: {
 			workList
