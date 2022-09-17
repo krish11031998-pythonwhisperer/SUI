@@ -8,7 +8,6 @@
 import SwiftUI
 
 //MARK: - CustomTextFieldStyle
-
 private struct CustomTextFieldStyle: TextFieldStyle {
 
 	@State var size: CGSize = .zero
@@ -57,7 +56,7 @@ private struct CustomTextFieldStyle: TextFieldStyle {
 									 isEditting: isEditting)
 					  .stroke(lineWidth: config.borderWidth)
 					  .foregroundColor(config.borderColor)
-					  .animation(.easeInOut)
+					  //.animation(.easeInOut)
 			  }
 		  }
 	}
@@ -106,10 +105,14 @@ fileprivate extension CustomTextFieldConfig {
 }
 
 //MARK: - CustomTextField
-
-struct CustomTextField: View {
+public struct CustomTextField: View {
 	@State var text: String = ""
 	@State var isEditting: Bool = false
+	let config: CustomTextFieldConfig
+	
+	public init(config: CustomTextFieldConfig) {
+		self.config = config
+	}
 	
 	func onEditting(_ editting: Bool) {
 		if text == "" {
@@ -119,7 +122,7 @@ struct CustomTextField: View {
 		}
 	}
 	
-	func onCommit() {
+	private func onCommit() {
 		if text == "" {
 			withAnimation(.default) {
 				isEditting = false
@@ -127,15 +130,14 @@ struct CustomTextField: View {
 		}
 	}
 	
-    var body: some View {
+    public var body: some View {
 		TextField("", text: $text, onEditingChanged: onEditting(_:), onCommit: onCommit)
-			.textFieldStyle(CustomTextFieldStyle(config: .default,isEditting: $isEditting))
-			.padding()
+			.textFieldStyle(CustomTextFieldStyle(config: config, isEditting: $isEditting))
     }
 }
 
 struct CustomTextField_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTextField()
+		CustomTextField(config: .default)
     }
 }

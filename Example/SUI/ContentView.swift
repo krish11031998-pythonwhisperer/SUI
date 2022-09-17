@@ -59,6 +59,12 @@ struct ContentView: View {
 					.buttonify {
 						self.appStates.animations.toggle()
 					}
+				
+				HeaderSubHeadView(title: "TextField".systemHeading1(color: .textColor),
+								  subTitle: "All Textfields".systemSubHeading(color: .textColor))
+					.buttonify {
+						self.appStates.textFields.toggle()
+					}
 
 				
 			}.padding()
@@ -70,6 +76,7 @@ struct ContentView: View {
 			roundedButtonLink
 			customNavBarLink
 			animationsNavLink
+			textFieldLink
 		}
 		.navigationBarHidden(true)
 		.customNavbarWithAppearance(navbarAppearance: navBarAppearance)
@@ -163,10 +170,17 @@ extension ContentView {
 			AnimationsMaster()
 		}
 	}
+	
+	var textFieldLink: some View {
+		NavLink(isActive: $appStates.textFields) {
+			TextFieldDemo()
+		}
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+			.environmentObject(MainAppStates())
     }
 }

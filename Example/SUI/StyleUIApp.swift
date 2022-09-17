@@ -13,6 +13,7 @@ class MainAppStates: ObservableObject {
 	@Published var roundedButton: Bool = false
 	@Published var navBar: Bool = false
 	@Published var animations: Bool = false
+	@Published var textFields: Bool = false
 }
 
 @main
