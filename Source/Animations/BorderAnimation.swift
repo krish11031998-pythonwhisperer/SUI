@@ -9,6 +9,12 @@ import SwiftUI
 
 struct BorderAnimation: Animatable, ViewModifier {
 	var pct: CGFloat
+	let cornerRadius: CGFloat
+	
+	init(pct:CGFloat,cornerRadius: CGFloat) {
+		self.pct = pct
+		self.cornerRadius = cornerRadius
+	}
 	
 	var animatableData: CGFloat {
 		get { pct }
@@ -19,7 +25,7 @@ struct BorderAnimation: Animatable, ViewModifier {
 		content
 			.overlay(alignment: .center) {
 				ZStack(alignment: .center) {
-					LineBorder(pct: pct, lineWidth: 5)
+					LineBorder(pct: pct, lineWidth: 3, cornerRadius: cornerRadius)
 						.foregroundColor(Color.blue.opacity(1))
 					String(format: "%.2f", pct).systemBody().text
 				}
@@ -36,14 +42,11 @@ struct BorderAnimationTest: View {
 				.fill(Color.red)
 				.frame(size: .init(squared: 100))
 				.buttonify {
-					withAnimation(.linear(duration: 0.75)) {
+					withAnimation(.linear(duration: 10)) {
 						animate.toggle()
 					}
 				}
-				.modifier(BorderAnimation(pct: animate ? 1 : 0))
-			if animate {
-				"animating".systemBody().text
-			}
+				.modifier(BorderAnimation(pct: animate ? 1 : 0, cornerRadius: 10))
 		}
 	}
 }
