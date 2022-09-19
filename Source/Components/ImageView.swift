@@ -59,6 +59,8 @@ public extension UIImage {
 					return
 				}
 				
+				Self.cache.setObject(validImage, forKey: urlString as NSString)
+				
 				Self.updateCallBacks(url: urlString, .success(validImage))
 				
 			}.resume()

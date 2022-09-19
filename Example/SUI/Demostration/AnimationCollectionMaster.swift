@@ -164,7 +164,7 @@ extension AnimationCollectionMaster {
 	}
 	
 	@ViewBuilder func stackScrollView() -> some View {
-		StackedScroll(data: [Color.red, Color.blue, Color.green,Color.indigo, Color.pink, Color.teal, Color.brown], lazyLoad: false) { data, _ in
+		StackedScroll(data: [Color.red, Color.blue, Color.green,Color.indigo, Color.pink, Color.teal, Color.brown], lazyLoad: true) { data, _ in
 			ExampleView(color: (data as? Color) ?? .black)
 		}
 	}
